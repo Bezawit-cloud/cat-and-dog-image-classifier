@@ -1,21 +1,24 @@
-
 import streamlit as st
 import tensorflow as tf
 from tensorflow.keras.preprocessing import image
 import numpy as np
 from PIL import Image
 import os
+import gdown
 
 # ------------------------------
-# Load model
+# Download model if not exists
 # ------------------------------
-MODEL_PATH = "Cat_and_dog_model.h5"  # Make sure this matches your file name exactly
+MODEL_ID = "1m0MxHbAvkfbWyaU0s0gQNcFakJWt4vQQ"  # your Google Drive file ID
+MODEL_PATH = "Cat_and_dog_model.h5"
+MODEL_URL = f"https://drive.google.com/uc?id={MODEL_ID}"
 
 @st.cache_resource
 def load_model():
     if not os.path.exists(MODEL_PATH):
-        st.error(f"Model file '{MODEL_PATH}' not found! Make sure it's in the same folder as app.py.")
-        return None
+        st.write("Downloading model...")
+        gdown.download(MODEL_URL, MODEL_PATH, quiet=False)
+        st.success("Model downloaded successfully!")
     return tf.keras.models.load_model(MODEL_PATH, compile=False)
 
 model = load_model()
@@ -51,6 +54,7 @@ if uploaded_file is not None and model:
         percent = (1 - prediction) * 100
 
     st.success(f"I’m {percent:.0f}% sure this is a {label}!")
+
 
 
 
