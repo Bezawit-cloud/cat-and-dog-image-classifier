@@ -7,7 +7,7 @@ The model was trained using **TensorFlow/Keras**, and deployed on **Streamlit Cl
 ---
 
 ## 🚀 Demo  
-👉 [Click here to try the app]("https://cat-and-dog-image-classifier-byzqjyekcdn3ydfpe5wgtz.streamlit.app/")  
+👉 [Click here to try the app](https://cat-and-dog-image-classifier-byzqjyekcdn3ydfpe5wgtz.streamlit.app/)  
 
 ---
 
@@ -34,6 +34,7 @@ The model was trained using **TensorFlow/Keras**, and deployed on **Streamlit Cl
 ---
 
  
+
 
 
 
